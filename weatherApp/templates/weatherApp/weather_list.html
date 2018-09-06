@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WeatherNow!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="stylesheet" href = "{% static 'css/weatherApp.css' %}">
+  </head>
+
+  <body>
+    <div class = 'center'>
+      <h1>What's the Weather like?</h1>
+      <div class = 'user_instructions'>
+        <p>This weather application will help you check the weather of any city in the world.</p>
+        <p>Simply enter the name of the city and the country to add the location to this weather list.</p>
+      </div>
+      <form method = "POST" >
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type = "submit" value = "Add Location" id = "input_button" >
+      </form>
+      <br>
+      <p class = "user_instructions"> {{ notice }} </p>
+    </div>
+
+    <div class = 'center'>
+    {% for weather in weathers %}
+      <hr>
+      <h1> {{ weather.city }}, {{ weather.country }} </h1>
+      <div class = 'weather_field_outputs'>
+        <p> {{ weather.temp }} &#8457; </p>
+        <p> {{ weather.desc }} </p>
+        <img src = "http://openweathermap.org/img/w/{{ weather.icon }}.png">
+        <p> Time Checked: {{ weather.time }} </p>
+      </div>
+    {% endfor %}
+    </div>
+  </body>
+</html>

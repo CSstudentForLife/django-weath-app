@@ -1,0 +1,57 @@
+body {
+  background-color: #33ccff;
+}
+
+.center {
+  text-align: center;
+  font-family: "Courgette"
+}
+
+.weather_field_outputs {
+  font-size : 25px;
+  margin: 20px;
+}
+
+.myfieldclass {
+  border-color: black;
+  background-color: white;
+  border-radius: 10px;
+  font-family: "Courgette";
+  font-size: 15px;
+}
+
+.user_instructions {
+  font-size: 25px;
+}
+
+h1 {
+  color: #ffff00;
+}
+
+hr {
+      background-color: yellow;
+      border: solid 8px black;
+      height: 8px;
+      width: 1000px;
+}
+
+/* The id's for the input fields, can be found using developer tools*/
+#id_city {
+   width: 250px;
+   height: 30px;
+   margin: 10px;
+ }
+
+#id_country {
+    width: 150px;
+    height: 30px;
+    margin: 10px;
+  }
+
+#input_button {
+  color: red;
+  background-color: yellow;
+  font-family: "Courgette";
+  font-size: 17px;
+  margin: 10px;
+}
