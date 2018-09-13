@@ -17,11 +17,13 @@
         <p>This weather application will help you check the weather of any city in the world.</p>
         <p>Simply enter the name of the city and the country to add the location to this weather list.</p>
       </div>
+      {% if user.is_authenticated %}
       <form method = "POST" >
         {% csrf_token %}
         {{ form.as_p}}
         <input type = "submit" value = "Add Location" id = "input_button" >
       </form>
+      {% endif %}
       <br>
       <p class = "user_instructions"> {{ notice }} </p>
     </div>
