@@ -1,0 +1,15 @@
+{% extends 'weatherApp/base.html' %}
+
+{% block content %}
+  <br>
+  <p class = "user_instructions">{{ message }}</p>
+
+  <form method = "POST" >
+    {% csrf_token %}
+    <label for = "Username" class = "field_name_size">Username</label>
+    <input type = "text" name = "username" class = "myfieldclass">
+    <label for = "Password" class = "field_name_size">Password</label>
+    <input type = "text" name = "password" class = "myfieldclass">
+    <input type = "submit" value = "Login" id = "login_button" >
+  </form>
+{% endblock %}

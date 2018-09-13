@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WeatherNow!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="stylesheet" href = "{% static 'css/weatherApp.css' %}">
+  </head>
+
+  <body>
+    <div class = 'center'>
+      <h1>What's the Weather like?</h1>
+      <div class = 'user_instructions'>
+        <p>This weather application will help you check the weather of any city in the world.</p>
+        <p>Simply enter the name of the city and the country to add the location to this weather list.</p>
+        {% if user.is_anonymous %}
+          <a href = "{% url 'user_login' %}">You must login to continue</a>
+        {% endif %}
+      </div>
+
+      {% if user.is_authenticated %}
+      <form method = "POST" action = "logout/">
+        {% csrf_token %}
+        <input type = "submit" value = "Logout" id = "logout_button">
+      </form>
+      {% endif %}
+    </div>
+
+    <div class = 'center'>
+    {% block content %}
+    {% endblock %}
+    </div>
+
+  </body>
+</html>

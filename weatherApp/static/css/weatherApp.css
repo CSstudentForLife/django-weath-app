@@ -11,7 +11,9 @@ body {
   font-size : 25px;
   margin: 20px;
 }
-
+.field_name_size {
+  font-size: 18px;
+}
 .myfieldclass {
   border-color: black;
   background-color: white;
@@ -24,6 +26,9 @@ body {
   font-size: 25px;
 }
 
+a:link {
+  color: #ffff00;
+}
 h1 {
   color: #ffff00;
 }
@@ -36,6 +41,15 @@ hr {
 }
 
 /* The id's for the input fields, can be found using developer tools*/
+
+label[for="id_city"] {
+  font-size: 18px;
+}
+
+label[for="id_country"] {
+  font-size: 18px;
+}
+
 #id_city {
    width: 250px;
    height: 30px;
@@ -49,6 +63,22 @@ hr {
   }
 
 #input_button {
+  color: red;
+  background-color: yellow;
+  font-family: "Courgette";
+  font-size: 17px;
+  margin: 10px;
+}
+
+#login_button {
+  color: red;
+  background-color: yellow;
+  font-family: "Courgette";
+  font-size: 17px;
+  margin: 10px;
+}
+
+#logout_button {
   color: red;
   background-color: yellow;
   font-family: "Courgette";

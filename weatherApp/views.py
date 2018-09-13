@@ -1,12 +1,32 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Location
 import requests
 from .forms import LocationForm
 from django.utils import timezone
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
+def user_login(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username = username, password = password)
+        if user:
+            login(request, user)
+            return redirect('weathers')
+        else:
+            message = "Incorrect username and password combination."
+            return render(request, 'weatherApp/login.html', {'message': message})
+    else:
+        message = "Please enter your username and password."
+        return render(request, 'weatherApp/login.html', {'message': message})
 
-def weather_list(request):
+def user_logout(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect('user_login')
+
+def weathers(request):
     url = "https://api.openweathermap.org/data/2.5/weather?q={},{}&units=imperial&APPID=d09e9f50bf267db14c26931849969919"
 
     notice = "Your weather locations are listed below."
