@@ -1,11 +1,25 @@
 from django.shortcuts import render, redirect
 from .models import Location
 import requests
-from .forms import LocationForm
+from .forms import LocationForm, RegistrationForm
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
 
 # Create your views here.
+
+def user_register(request):
+    if request.method == "POST":
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('user_login')
+        else:
+            return redirect('user_register')
+    else:
+        form = RegistrationForm()
+        return render(request, 'weatherApp/user_register.html', {'form': form})
+
 def user_login(request):
     if request.method == "POST":
         username = request.POST['username']

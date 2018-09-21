@@ -17,7 +17,9 @@
         <p>This weather application will help you check the weather of any city in the world.</p>
         <p>Simply enter the name of the city and the country to add the location to this weather list.</p>
         {% if user.is_anonymous %}
-          <a href = "{% url 'user_login' %}">You must login to continue</a>
+          <br>
+          <p><a href = "{% url 'user_login' %}">You must login to continue</a></p>
+          <br>
         {% endif %}
       </div>
 
@@ -33,6 +35,13 @@
     {% block content %}
     {% endblock %}
     </div>
+
+    <div class = 'center user_instructions'>
+      <br>
+      <p>Don't have an account?</p>
+      <a href = "{% url 'user_register' %}">Click here to sign up </a>
+    </div>
+
 
   </body>
 </html>

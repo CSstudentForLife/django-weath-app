@@ -11,9 +11,11 @@ body {
   font-size : 25px;
   margin: 20px;
 }
+
 .field_name_size {
   font-size: 18px;
 }
+
 .myfieldclass {
   border-color: black;
   background-color: white;
@@ -26,9 +28,10 @@ body {
   font-size: 25px;
 }
 
-a:link {
+a:link, a:visited {
   color: #ffff00;
 }
+
 h1 {
   color: #ffff00;
 }
@@ -42,11 +45,14 @@ hr {
 
 /* The id's for the input fields, can be found using developer tools*/
 
-label[for="id_city"] {
+/* This is for the labels on the add city page, for the city name and country code*/
+label[for="id_city"], label[for="id_country"] {
   font-size: 18px;
 }
 
-label[for="id_country"] {
+/* This is for the labels on the user registration page. */
+label[for="id_username"], label[for="id_first_name"], label[for="id_last_name"],
+label[for="id_email"], label[for="id_password1"], label[for="id_password2"] {
   font-size: 18px;
 }
 
@@ -62,23 +68,7 @@ label[for="id_country"] {
     margin: 10px;
   }
 
-#input_button {
-  color: red;
-  background-color: yellow;
-  font-family: "Courgette";
-  font-size: 17px;
-  margin: 10px;
-}
-
-#login_button {
-  color: red;
-  background-color: yellow;
-  font-family: "Courgette";
-  font-size: 17px;
-  margin: 10px;
-}
-
-#logout_button {
+#input_button, #login_button, #logout_button, #register_button {
   color: red;
   background-color: yellow;
   font-family: "Courgette";
